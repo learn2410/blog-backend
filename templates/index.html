@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block tag_title %}
-Sensive Blog - Home
+  Sensive Blog - Home
 {%  endblock tag_title %}
 
 {% block open_tag_main %}
@@ -12,6 +12,18 @@ Sensive Blog - Home
 {% block close_tag_main %}
   </main>
 {% endblock close_tag_main %}
+
+{% block hero_banner_content %}
+  <h3>Tours &amp; Travels</h3>
+  <h1>Amazing Places on earth</h1>
+  <h4>
+  {% with fresh_posts|first as latest_post %}
+    {#---- latest post date ----#}
+    {{ latest_post.published_at|date:"F j, Y" }}
+  {% endwith %}
+
+  </h4>
+{% endblock hero_banner_content %}
 
 
 {% block content %}
@@ -24,9 +36,9 @@ Sensive Blog - Home
               <div class="card blog__slide text-center">
                 <div class="blog__slide__img">
                   {% if popular_post.image_url %}
-                    <img class="card-img rounded-0" src="{{popular_post.image_url}}" alt="">
+                    <img class="card-img rounded-0" src="{{popular_post.image_url}}" alt="{{ popular_post.title }}">
                   {% else %}
-                    <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="">
+                    <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="Sensive Blog">
                   {% endif %}
 
                 </div>
@@ -52,13 +64,13 @@ Sensive Blog - Home
               <div class="single-recent-blog-post">
                 <div class="thumb">
                   {% if post.image_url %}
-                    <img class="img-fluid" src="{{ post.image_url }}" alt="">
+                    <img class="img-fluid" src="{{ post.image_url }}" alt="{{ post.title }}">
                   {% else %}
-                    <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="">
+                    <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="Sensive Blog">
                   {% endif %}
                   <ul class="thumb-info" style="max-width: 550px;" >
                     <li><a href="/post/{{ post.slug }}"><i class="ti-user"></i>{{ post.author }}</a></li>
-                    <li><a href="/post/{{ post.slug }}"><i class="ti-notepad"></i>{{ post.published_at }}January 12,2019</a></li>
+                    <li><a href="/post/{{ post.slug }}"><i class="ti-notepad"></i>{{ post.published_at }}</a></li>
                     <li><a href="/post/{{ post.slug }}"><i class="ti-themify-favicon"></i>{{ post.comments_amount }} Comments</a></li>
                   </ul>
                 </div>
@@ -71,34 +83,33 @@ Sensive Blog - Home
               <br>
             {% endfor %}
 
-
             <div class="row">
               <div class="col-lg-12">
-                  <nav class="blog-pagination justify-content-center d-flex">
-                      <ul class="pagination">
-                          <li class="page-item">
-                              <a href="#" class="page-link" aria-label="Previous">
-                                  <span aria-hidden="true">
-                                      <i class="ti-angle-left"></i>
-                                  </span>
-                              </a>
-                          </li>
-                          <li class="page-item active"><a href="#" class="page-link">1</a></li>
-                          <li class="page-item"><a href="#" class="page-link">2</a></li>
-                          <li class="page-item">
-                              <a href="#" class="page-link" aria-label="Next">
-                                  <span aria-hidden="true">
-                                      <i class="ti-angle-right"></i>
-                                  </span>
-                              </a>
-                          </li>
-                      </ul>
-                  </nav>
+                <nav class="blog-pagination justify-content-center d-flex">
+                  <ul class="pagination">
+                    <li class="page-item">
+                      <a href="#" class="page-link" aria-label="Previous">
+                        <span aria-hidden="true">
+                          <i class="ti-angle-left"></i>
+                        </span>
+                      </a>
+                    </li>
+                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                    <li class="page-item"><a href="#" class="page-link">2</a></li>
+                    <li class="page-item">
+                      <a href="#" class="page-link" aria-label="Next">
+                        <span aria-hidden="true">
+                          <i class="ti-angle-right"></i>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
               </div>
             </div>
           </div>
 
-{% include '_blog_post_sidebar.html' %}
+          {% include '_blog_post_sidebar.html' %}
         </div>
       </div>
     </section>

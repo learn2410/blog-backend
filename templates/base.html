@@ -7,11 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>
     {% block tag_title %}
-    Sensive Blog - Base
+      Sensive Blog - Base
     {%  endblock tag_title %}
   </title>
   <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png">
-
   <link rel="stylesheet" href="{% static 'styles.min.css' %}">
 </head>
 <body>
@@ -21,7 +20,7 @@
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container box_1620">
           <!-- Brand and toggle get grouped for better mobile display -->
-          <a class="navbar-brand logo_h" href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}"  alt=""></a>
+          <a class="navbar-brand logo_h" href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}"  alt="Sensive Blog"></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -46,29 +45,27 @@
   </header>
   <!--================Header Menu Area =================-->
 
-{% block open_tag_main %}
-{% endblock open_tag_main %}
+  {% block open_tag_main %}
+  {% endblock open_tag_main %}
 
     <!--================Hero Banner start =================-->
     <section class="mb-30px">
       <div class="container">
         <div class="hero-banner">
           <div class="hero-banner__content">
-            <h3>Tours &amp; Travels</h3>
-            <h1>Amazing Places on earth</h1>
-            <h4>December 12, 2018</h4>
+            {% block hero_banner_content %}
+            {% endblock hero_banner_content %}
           </div>
         </div>
       </div>
     </section>
     <!--================Hero Banner end =================-->
 
-{% block content %}
-{% endblock content %}
+  {% block content %}
+  {% endblock content %}
 
-{% block close_tag_main %}
-  </main>
-{% endblock close_tag_main %}
+  {% block close_tag_main %}
+  {% endblock close_tag_main %}
 
   <!--================ Start Footer Area =================-->
   <footer class="footer-area section-padding">
