@@ -3,16 +3,16 @@
 
 {% block tag_title %}
   {{ post.title }} - Blog Details
-{%  endblock tag_title %}
+{% endblock tag_title %}
 
 {% block hero_banner_content %}
-          <h1>Blog details</h1>
-          <nav aria-label="breadcrumb" class="banner-breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Blog Details</li>
-            </ol>
-          </nav>
+  <h1>Blog details</h1>
+  <nav aria-label="breadcrumb" class="banner-breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Blog Details</li>
+    </ol>
+  </nav>
 {% endblock hero_banner_content %}
 
 
@@ -24,7 +24,7 @@
         <div class="col-lg-8">
           <div class="main_blog_details">
             {% if post.image_url %}
-              <img class="img-fluid" src="{{ post.image_url}}" alt="{{ post.title }}">
+              <img class="img-fluid" src="{{ post.image_url }}" alt="{{ post.title }}">
             {% else %}
               <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="Sensive Blog">
             {% endif %}
@@ -41,8 +41,11 @@
             </div>
             <p>{{ post.text }}</p>
             <div class="news_d_footer flex-column flex-sm-row">
-              <a href="#"><span class="align-middle mr-2"><i class="ti-heart" style="color:red;"></i></span>{{ post.likes_amount}} people like this</a>
-              <a class="justify-content-sm-center ml-sm-auto mt-sm-0 mt-2" href="#"><span class="align-middle mr-2"><i class="ti-themify-favicon"></i></span>{{ post.comments|length }} Comments</a>
+              <a href="#"><span class="align-middle mr-2"><i class="ti-heart"
+                                                             style="color:red;"></i></span>{{ post.likes_amount }}
+                people like this</a>
+              <a class="justify-content-sm-center ml-sm-auto mt-sm-0 mt-2" href="#"><span class="align-middle mr-2"><i
+                      class="ti-themify-favicon"></i></span>{{ post.comments|length }} Comments</a>
               <div class="news_socail ml-sm-auto mt-sm-0 mt-2">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -62,7 +65,7 @@
                       <h5><a href="#">{{ comment.author }}</a></h5>
                       <p class="date">{{ comment.published_at }}</p>
                       <p class="comment">
-                      {{ comment.text }}
+                        {{ comment.text }}
                       </p>
                     </div>
                   </div>
@@ -76,7 +79,7 @@
           </div>
         </div>
 
-      {% include '_blog_post_sidebar.html' %}
+        {% include '_blog_post_sidebar.html' %}
       </div>
     </div>
   </section>
